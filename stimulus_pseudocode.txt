@@ -1,0 +1,8 @@
+1. Setup stimulus initializing ✅
+2. create the controller ✅
+
+3. add data-controller in HTML ✅
+4. add data-action in HTML ✅
+5. add data-mycontroller-target in HTML if needed ✅
+
+6. create the action methods ✅

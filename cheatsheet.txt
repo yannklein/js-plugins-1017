@@ -1,2 +1,0 @@
-https://www.omdbapi.com/?s=star wars&apikey=adf1f2d7
-<li class='list-inline-item'>

@@ -1,4 +1,6 @@
-// sih + tab
+// diff kind of env
+// this
+// function vs arrow function
 import { Application } from '@hotwired/stimulus'
 import { definitionsFromContext } from '@hotwired/stimulus-webpack-helpers'
 

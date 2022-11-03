@@ -1,40 +1,40 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = [ 'results', 'input' ]
+  static targets = [ 'list', 'input' ]
 
   connect() {
     console.log('Hello from movies_controller.js')
-    this.fetchOmdbAPI("star wars")
-
-    // search.addEventListener("click", searchMovies);
+    // console.log(this.testTarget)
+    this.fetchOmdbAPI("star wars");
   }
 
   displayMovies(movies) {
-    // const results = document.querySelector("#results");
-    this.resultsTarget.innerHTML = "";
+    const list = this.listTarget
+    list.innerHTML = "";
     movies.forEach((movie) => {
-      this.resultsTarget.insertAdjacentHTML(
-        'beforeend',
+      list.insertAdjacentHTML(
+        "beforeend",
         `<li class='list-inline-item'>
-        <img height="120" src="${movie.Poster}" alt="poster" />
+          <img src="${movie.Poster}" height=100 alt="" />
         </li>`);
     });
   };
-    
+  
   fetchOmdbAPI(keyword) {
     const url = `https://www.omdbapi.com/?s=${keyword}&apikey=adf1f2d7`;
     fetch(url)
-    .then(response => response.json())
-    .then((data) => {
-      const movies = data.Search;
-      this.displayMovies(movies);
-    })
+      .then(response => response.json())
+      .then((data) => {
+        const movies = data.Search;
+        this.displayMovies(movies);
+      })
   };
   
-  searchMovies(event) {
-    // const input = document.querySelector("#keyword");
-    event.preventDefault(); 
-    this.fetchOmdbAPI(this.inputTarget.value);
-  };
+  searchMovie(event) {
+    const input = this.inputTarget
+    event.preventDefault();
+    const keyword = input.value;
+    this.fetchOmdbAPI(keyword);
+  }
 }
